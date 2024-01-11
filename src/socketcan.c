@@ -26,7 +26,7 @@ int socketcan_socket_open(socketcan_socket *socketcan_socket,
   }
   socketcan_socket->linux_socket = s;
 
-  if (filters != NULL || filter_count == 0) {
+  if (filters != NULL || filter_count != 0) {
     int erno =
         setsockopt(socketcan_socket->linux_socket, SOL_CAN_RAW, CAN_RAW_FILTER,
                    filters, sizeof(socketcan_filter) * filter_count);
@@ -48,9 +48,10 @@ int socketcan_send_frame(socketcan_socket *socketcan_socket,
   return 0;
 }
 int socketcan_recv_frame(socketcan_socket *socketcan_socket,
-                         socketcan_frame *frame) {
+    socketcan_frame *frame) {
   int nbytes =
       read(socketcan_socket->linux_socket, frame, sizeof(socketcan_frame));
+  printf("bytes_received %u\n", nbytes);
   if (nbytes < 0) {
     return 1;
   }

@@ -25,6 +25,8 @@ int main() {
     printf("failed to recv frame\n");
   }
 
+  while(1);
+
   erno = socketcan_close(&socket);
   if (erno) {
     printf("failed to close socket");
