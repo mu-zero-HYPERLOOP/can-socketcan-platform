@@ -50,7 +50,7 @@ int socketcan_send_frame(socketcan_socket *socketcan_socket,
 int socketcan_recv_frame(socketcan_socket *socketcan_socket,
                          socketcan_frame *frame) {
   int nbytes =
-      read(socketcan_socket->linux_socket, &frame, sizeof(socketcan_frame));
+      read(socketcan_socket->linux_socket, frame, sizeof(socketcan_frame));
   if (nbytes < 0) {
     return 1;
   }

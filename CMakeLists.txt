@@ -10,7 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
 add_library(${PROJECT_NAME} 
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/socketcan_socket.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/socketcan.c
 )
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
