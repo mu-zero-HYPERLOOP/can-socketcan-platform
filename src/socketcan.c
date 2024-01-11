@@ -51,7 +51,6 @@ int socketcan_recv_frame(socketcan_socket *socketcan_socket,
     socketcan_frame *frame) {
   int nbytes =
       read(socketcan_socket->linux_socket, frame, sizeof(socketcan_frame));
-  printf("bytes_received %u\n", nbytes);
   if (nbytes < 0) {
     return 1;
   }
